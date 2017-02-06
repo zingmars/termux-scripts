@@ -3,7 +3,7 @@ set -e
 
 # Upload
 notid=1
-domain = https://domain
+domain="https://domain"
 
 termux-toast -s "Uploading..."
 echo "$1"
