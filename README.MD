@@ -1,11 +1,32 @@
 Termux-upload script collection
 ===
 
-Since there's no ShareX/Screencloud or any other similar software for android, I wrote a few shell scripts to be used with termux to recreate at least some of the uploading functionality. Please note that I wrote this for my personal use (Linx+YOURLS), and a lot of modification will be needed if you end up using this for your own setup, but at least it's a good place to start. These scripts require [termux](https://play.google.com/store/apps/details?id=com.termux), [termux-api](https://play.google.com/store/apps/details?id=com.termux.api). After installing both run `apt update && apt upgrade && apt install termux-api curl jq` and you should be ready go.
+Since there's no ShareX/Screencloud or any other similar software for android, I wrote a few shell scripts to be used with termux to recreate at least some of the uploading functionality. Please note that I wrote this for my personal use (Linx+YOURLS), and a lot of modification will be needed if you end up using this for your own setup, but at least it's a good place to start. These scripts require [termux](https://play.google.com/store/apps/details?id=com.termux), [termux-api](https://play.google.com/store/apps/details?id=com.termux.api). After installing both run `pkg update && pkg install termux-api curl jq` and you should be ready go.
 
+# Installation instructions
+If entering them by hand on a phone or tablet, I recommend using [Hacker's Keyboard](https://f-droid.org/en/packages/org.pocketworkstation.pckeyboard/) which has arrow keys and a tab button for autocomplete.
+
+```bash
+$ pkg update
+$ pkg install wget # termux come with busybox wget by default that doesn't support https
+$ hash -r
+$ wget https://github.com/zingmars/termux-scripts/archive/master.zip
+$ unzip master.zip
+$ pkg install vim #or nano or whatever editor you want
+$ cd termux-scripts-master
+$ chmod +x *.sh
+# ! Edit your files, i.e. vim upload.sh
+$ pkg install termux-api curl jq
+# Install the scripts
+$ cd $HOME && mkdir bin && ln -s $HOME/termux-scripts-master/upload.sh $HOME/bin/termux-file-editor
+$ ln -s $HOME/termux-scripts-master/delete.sh /data/data/com.termux/files/usr/bin/delete-file
+$ ln -s $HOME/termux-scripts-master/shorten.sh /data/data/com.termux/files/usr/bin/shorten
+```
+
+# Script descriptions
 ## upload.sh
 
-Simple upload script. Edit it's curl upload commands. Afterwards place it in termux's `$HOME/bin/` rename it to termux-file-editor and then share your files to Termux like you would to any other app. A bit hackish, but it works. 
+Simple upload script. Edit it's curl upload commands. Afterwards place it in termux's `$HOME/bin/` rename it to termux-file-editor (or just symlink it) and then share your files to Termux like you would to any other app. A bit hackish, but it works. 
 
 ## delete.sh
 
