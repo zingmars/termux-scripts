@@ -16,7 +16,7 @@ $ pkg install vim #or nano or whatever editor you want
 $ cd termux-scripts-master
 $ chmod +x *.sh
 # ! Edit your files, i.e. vim upload.sh
-$ pkg install termux-api curl jq
+$ pkg install termux-api termux-tools curl jq
 # Install the scripts
 $ cd $HOME && mkdir bin && ln -s $HOME/termux-scripts-master/upload.sh $HOME/bin/termux-file-editor
 $ ln -s $HOME/termux-scripts-master/delete.sh /data/data/com.termux/files/usr/bin/delete-file
